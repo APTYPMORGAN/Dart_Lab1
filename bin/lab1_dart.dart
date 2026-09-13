@@ -1,3 +1,24 @@
+String greet(String name) {
+  return 'Привет, $name!';
+}
+
+int square(int x) => x * x;
+String greet2(String name2) => 'Привет, $name2!';
+void describePet({
+  required String name,
+  String species = 'кот',
+  int age = 0,
+}) {
+  print('$name - $species, возраст $age');
+}
+String repeat(String text, [int times = 2]) {
+  String result = '';
+  for (int i = 0; i < times; i++) {
+    result += text;
+  }
+  return result;
+}
+
 void main() {
   String name = 'Артур';
   int age = 17;
@@ -43,4 +64,20 @@ void main() {
   for (var fruit in fruits2) {
     print(fruit);
   }
+  print(greet('Артур'));
+  print(greet('Артём'));
+  print(square(5));
+  print(greet2('Гриша'));
+  describePet(name: 'Барсик', age: 3);
+  describePet(name: 'Шарик', species: 'пёс');
+  print(repeat('ха', 3));
+  print(repeat('ха'));
+  List<int> numbers = [3, 1, 4, 1, 5, 9];
+  numbers.sort((a, b) => b - a);
+  print(numbers);
+  List<String> names = ['Артём', 'Мария', 'Иван'];
+  List<String> upper = names.map((name) => name.toUpperCase()).toList();
+  print(upper);
+  List<String> longNames = names.where ((name) => name.length > 4).toList();
+  print(longNames);
 }
